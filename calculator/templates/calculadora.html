@@ -7,6 +7,9 @@
     <title>Simple Calculator using HTML, CSS and JavaScript</title>
 
     <link rel="stylesheet" href="styles.css">
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <!-- {{url_for('static', filename='script.js')}} -->
 </head>
 
 <body>
@@ -65,29 +68,25 @@
 
             <!-- calculate() function evaluates the mathematical expression -->
 
-            <td> <input type="button" value="=" onclick="send()" id="btn" /> </td>
-
+            <!-- <td> <input type="button" value="=" onclick="send()" id="btn" /> </td> -->
+            <td> 
+                <form action="/" method="post" >
+                    <input type="hidden" id="dato" name="dato" value="" >
+                    <input type="submit" value="=" onclick="send()"  >    
+                </form> 
+            </td>
             <td> <input type="button" value="*" onclick="addDisplay('*')" /> </td>
         </tr>
     </table>
-    <p id="dato" title="hola"></p>
-    <script>
-        let displayValue = "";
 
-        function addDisplay(value) {
-            displayValue += value;
-            document.getElementById("result").value = displayValue;
-        }
 
-        function clearDisplay() {
-            displayValue = ""
-            document.getElementById("result").value = "";
-        }
+    {% if resultado %}
+    <h2>Resultado: {{ resultado }}</h2>
+    {% endif %}
 
-        function send() {
-            document.getElementById("dato").textContent = displayValue;
-        }
-    </script>
+    {% if error %}
+    <h2>{{ error }}</h2>
+    {% endif %}
 
 </body>
 
