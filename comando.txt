@@ -1,0 +1,17 @@
+$ python -m venv myproject
+crear proyecto
+
+activar env
+venv\Scripts\activate
+se cambia el venv con la carpeta que este el scritp
+
+primero hay que ingresar a la carpeta correspondiente
+
+installar la lib
+pip install Flask
+
+iniciar 
+flask --app hello run
+
+debugx  
+flask --app hello run --debug

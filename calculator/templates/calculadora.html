@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+    <meta charset="utf-8">
+    <title>Simple Calculator using HTML, CSS and JavaScript</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <table class="calculator">
+
+        <tr>
+
+            <td colspan="3"> <input class="display-box" type="text" id="result" disabled /> </td>
+
+            <!-- clearScreen() function clears all the values -->
+
+            <td> <input type="button" value="C" onclick="clearDisplay()" id="btn" /> </td>
+        </tr>
+
+        <tr>
+
+            <!-- display() function displays the value of clicked button -->
+
+            <td> <input type="button" value="1" onclick="addDisplay('1')" /> </td>
+
+            <td> <input type="button" value="2" onclick="addDisplay('2')" /> </td>
+
+            <td> <input type="button" value="3" onclick="addDisplay('3')" /> </td>
+
+            <td> <input type="button" value="/" onclick="addDisplay('/')" /> </td>
+        </tr>
+
+        <tr>
+
+            <td> <input type="button" value="4" onclick="addDisplay('4')" /> </td>
+
+            <td> <input type="button" value="5" onclick="addDisplay('5')" /> </td>
+
+            <td> <input type="button" value="6" onclick="addDisplay('6')" /> </td>
+
+            <td> <input type="button" value="-" onclick="addDisplay('-')" /> </td>
+        </tr>
+
+        <tr>
+
+            <td> <input type="button" value="7" onclick="addDisplay('7')" /> </td>
+
+            <td> <input type="button" value="8" onclick="addDisplay('8')" /> </td>
+
+            <td> <input type="button" value="9" onclick="addDisplay('9')" /> </td>
+
+            <td> <input type="button" value="+" onclick="addDisplay('+')" /> </td>
+        </tr>
+
+        <tr>
+
+            <!-- <td> <input type="button" value="." onclick="addDisplay('.')" /> </td> -->
+
+            <td> <input type="button" value="0" onclick="addDisplay('0')" /> </td>
+
+            <!-- calculate() function evaluates the mathematical expression -->
+
+            <td> <input type="button" value="=" onclick="send()" id="btn" /> </td>
+
+            <td> <input type="button" value="*" onclick="addDisplay('*')" /> </td>
+        </tr>
+    </table>
+    <p id="dato" title="hola"></p>
+    <script>
+        let displayValue = "";
+
+        function addDisplay(value) {
+            displayValue += value;
+            document.getElementById("result").value = displayValue;
+        }
+
+        function clearDisplay() {
+            displayValue = ""
+            document.getElementById("result").value = "";
+        }
+
+        function send() {
+            document.getElementById("dato").textContent = displayValue;
+        }
+    </script>
+
+</body>
+
+</html>
